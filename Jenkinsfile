@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    node {
+      label 'a40i-build-node'
+    }
+
+  }
   stages {
     stage('build') {
       steps {
