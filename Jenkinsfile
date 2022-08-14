@@ -12,5 +12,22 @@ pipeline {
       }
     }
 
+    stage('pack') {
+      parallel {
+        stage('pack-uboot') {
+          steps {
+            archiveArtifacts 'u-boot-sunxi/u-boot.bin'
+          }
+        }
+
+        stage('pack-kernel') {
+          steps {
+            archiveArtifacts 'linux-sunxi/vmlinux'
+          }
+        }
+
+      }
+    }
+
   }
 }
