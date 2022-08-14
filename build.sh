@@ -24,3 +24,4 @@ fi
 
 make && 
 make pack
+echo "test"
